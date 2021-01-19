@@ -1,8 +1,4 @@
-/*
- * Copyright 2018 Dialog LLC <info@dlg.im>
- */
-
-import { CertificateVerifyProcRequest } from 'electron';
+import { CertificateVerifyProcRequest } from "electron";
 
 type Config = Array<{
   domain: string;
@@ -26,7 +22,7 @@ export function createSslVerificator(config: Config) {
   const rules = config.map((rule) => {
     const fingerprintSet = new Set(rule.fingerprints);
     const hostnameRegex = new RegExp(
-      '^' + rule.domain.replace('*.', '.*\\.?') + '$'
+      "^" + rule.domain.replace("*.", ".*\\.?") + "$"
     );
 
     return (hostname: string, fingerprints: Array<string>) => {

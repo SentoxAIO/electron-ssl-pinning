@@ -3,35 +3,17 @@
   "version": "1.0.0",
   "description": "Prevents MITM in Electron applications",
   "main": "lib/index.js",
-  "bin": {
-    "fetch-ssl-pinning-config": "bin/fetch-ssl-pinning-config"
-  },
   "scripts": {
-    "test": "jest",
     "prebuild": "rm -rf lib/",
     "build": "tsc",
     "postbuild": "flowgen -o lib/index.flow.js --interface-records --add-flow-header --no-inexact --no-module-exports lib/index.d.ts",
-    "preversion": "npm test",
     "postversion": "npm run release",
     "prerelease": "npm run build",
     "release": "git push --follow-tags",
     "postrelease": "npm publish"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dialogs/electron-ssl-pinning.git"
-  },
-  "keywords": [
-    "electron",
-    "mitm",
-    "ssl",
-    "tls"
-  ],
   "author": "Nikita Gusakov <gusnkt@gmail.com>",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/dialogs/electron-ssl-pinning/issues"
-  },
   "homepage": "https://github.com/dialogs/electron-ssl-pinning#readme",
   "devDependencies": {
     "@jest-runner/electron": "2.0.2",
